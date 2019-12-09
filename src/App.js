@@ -57,7 +57,7 @@ class App extends Component {
   calculate = () => {
     try {
       this.setState({
-        result: (JSON.parse(this.state.result) || "") + ""
+        result: (JSON.parse(JSON.stringify(this.state.result)) || "") + ""
       });
     } catch (e) {
       this.setState({
