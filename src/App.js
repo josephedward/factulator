@@ -3,7 +3,7 @@ import ResultComponent from "./components/resultComponent";
 import KeyPadComponent from "./components/keypadComponent";
 import NumberFact from "./components/numberFact";
 import axios from "axios";
-import safeEval from "safe-eval"
+import safeEval from "safe-eval";
 
 class App extends Component {
   constructor() {
@@ -11,33 +11,32 @@ class App extends Component {
 
     this.state = {
       result: "",
-      fact:""
+      fact: ""
     };
   }
 
-async getNumberTrivia(number){
+  async getNumberTrivia(number) {
     //defaults to trivia if type unspecified
     // hit http://numbersapi.com/number/type to get a plain text response
- let newFact= await axios.get(`http://numbersapi.com/${number}/trivia`)
- .then(res=>{
-    console.log(res.data);
-    return res.data
-});
-    console.log("getNumberTrivia newFact: "+newFact);
+    let newFact = await axios
+      .get(`http://numbersapi.com/${number}/trivia`)
+      .then(res => {
+        console.log(res.data);
+        return res.data;
+      });
+    console.log("getNumberTrivia newFact: " + newFact);
     this.setState({
-        fact:newFact
-    })
+      fact: newFact
+    });
     return newFact;
-}
+  }
 
-async setFact(){
-    let tempFact=await this.getNumberTrivia(this.state.result);
+  async setFact() {
+    let tempFact = await this.getNumberTrivia(this.state.result);
     this.setState({
-        fact:tempFact
-    })
-
-}
-
+      fact: tempFact
+    });
+  }
 
   onClick = button => {
     this.setFact();
@@ -58,8 +57,6 @@ async setFact(){
   calculate = () => {
     try {
       this.setState({
-
-        // eslint-disable-next-line
         result: (safeEval(this.state.result) || "") + ""
       });
     } catch (e) {
@@ -82,19 +79,14 @@ async setFact(){
   };
 
   render() {
-    console.log("main render this.state.fact: "+this.state.fact)
+    console.log("main render this.state.fact: " + this.state.fact);
     return (
       <div>
         <div className="calculator-body">
           <h1>Factulator</h1>
-          <ResultComponent result={this.state.result}
-            />
           <KeyPadComponent onClick={this.onClick} />
-          <NumberFact 
-          
-          fact={this.state.fact}
-
-          />
+          <ResultComponent result={this.state.result} />
+          <NumberFact fact={this.state.fact} />
         </div>
       </div>
     );
