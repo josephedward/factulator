@@ -3,7 +3,7 @@ import ResultComponent from "./components/resultComponent";
 import KeyPadComponent from "./components/keypadComponent";
 import NumberFact from "./components/numberFact";
 import axios from "axios";
-import { isThisTypeAnnotation } from "@babel/types";
+import safeEval from "safe-eval"
 
 class App extends Component {
   constructor() {
@@ -20,7 +20,6 @@ async getNumberTrivia(number){
     // hit http://numbersapi.com/number/type to get a plain text response
  let newFact= await axios.get(`http://numbersapi.com/${number}/trivia`)
  .then(res=>{
-    //remember to grab just what you need -> res.data
     console.log(res.data);
     return res.data
 });
@@ -39,9 +38,6 @@ async setFact(){
 
 }
 
-// componentDidUpdate(){
-//     this.setFact();
-// }
 
   onClick = button => {
     this.setFact();
@@ -62,8 +58,9 @@ async setFact(){
   calculate = () => {
     try {
       this.setState({
+
         // eslint-disable-next-line
-        result: (eval(this.state.result) || "") + ""
+        result: (safeEval(this.state.result) || "") + ""
       });
     } catch (e) {
       this.setState({

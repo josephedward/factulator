@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, Separator } from "reakit";
 
 class KeyPadComponent extends Component {
   render() {
