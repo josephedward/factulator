@@ -107,7 +107,8 @@ const mainStyle={
   "text-align": "center",
   float: "center",
   margin: "auto",
-  "border":"1px solid black"
+  "border":"1px solid black",
+  "padding":"10px",
 
 }
 

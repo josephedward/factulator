@@ -198,7 +198,8 @@ const keyPadCSS = {
 
 const kpColCss = {
   display: "block",
-  "border":"1px solid black"
+  "border":"1px solid black",
+  // "margin":"5px",
 };
 
 export default KeyPadComponent;
