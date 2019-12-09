@@ -57,7 +57,7 @@ class App extends Component {
   calculate = () => {
     try {
       this.setState({
-        result: (safeEval(this.state.result) || "") + ""
+        result: (JSON.parse(this.state.result) || "") + ""
       });
     } catch (e) {
       this.setState({
