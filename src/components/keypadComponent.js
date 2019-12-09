@@ -5,7 +5,7 @@ class KeyPadComponent extends Component {
   render() {
     return (
       <div id="keyPad" style={keyPadCSS}>
-        <div id="operationsButtons">
+        <div id="operationsButtons" style={kpColCss}>
           <Button
             id="Button-leftParenthetical"
             value="left parentheses"
@@ -92,7 +92,7 @@ class KeyPadComponent extends Component {
         </div>
         <Separator orientation="vertical" />
         {/* ************************************************************************** */}
-        <div id="numberButtons">
+        <div id="numberButtons" style={kpColCss}>
           <Button
             id="Button-1"
             value="1"
@@ -189,14 +189,16 @@ class KeyPadComponent extends Component {
 const keyPadCSS = {
   display: "flex",
   "flex-direction": "row",
-  width: "50%",
+  // width: "25%",
   "text-align": "center",
   float: "center",
-  margin: "auto"
+  margin: "auto",
+ 
 };
 
 const kpColCss = {
-  display: "block"
+  display: "block",
+  "border":"1px solid black"
 };
 
 export default KeyPadComponent;

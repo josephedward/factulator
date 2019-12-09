@@ -79,18 +79,36 @@ class App extends Component {
   };
 
   render() {
-    console.log("main render this.state.fact: " + this.state.fact);
+    // console.log("main render this.state.fact: " + this.state.fact);
     return (
-      <div>
+      <div id="mainRender" style={mainStyle}>
         <div className="calculator-body">
           <h1>Factulator</h1>
+          {/* <br/> */}
+          <p>Controls:</p>
+          {/* <br/> */}
           <KeyPadComponent onClick={this.onClick} />
+          {/* <br/> */}
+          <p>Result:</p>
+          {/* <br/> */}
           <ResultComponent result={this.state.result} />
+          {/* <br/> */}
+          <p>Fact:</p>
+          {/* <br/> */}
           <NumberFact fact={this.state.fact} />
         </div>
       </div>
     );
   }
+}
+
+const mainStyle={
+  "width":"25%",
+  "text-align": "center",
+  float: "center",
+  margin: "auto",
+  "border":"1px solid black"
+
 }
 
 export default App;

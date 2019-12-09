@@ -15,7 +15,7 @@ class NumberFact extends Component {
 }
 
 const testStyle = {
-  border: "5px solid red"
+  border: "1px solid black"
 };
 
 export default NumberFact;

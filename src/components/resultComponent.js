@@ -17,7 +17,7 @@ class ResultComponent extends Component {
 
 const resultStyle={
 
-        "border":"5px solid red"
+        "border":"1px solid black"
 }
 
 export default ResultComponent;
