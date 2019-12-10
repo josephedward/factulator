@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 // import { Button, Separator } from "reakit";
-import { Button } from "semantic-ui-react";
+import { Button, Popup } from "semantic-ui-react";
+//rating for test
+
 class KeyPadComponent extends Component {
   render() {
     return (
@@ -8,7 +10,8 @@ class KeyPadComponent extends Component {
         {/* <Separator orientation="vertical" /> */}
         {/* ************************************************************************** */}
         <div id="numberButtons" style={kpColCss}>
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_1"
             value="1"
@@ -17,7 +20,8 @@ class KeyPadComponent extends Component {
           >
             1
           </Button>
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_2"
             value="2"
@@ -26,7 +30,8 @@ class KeyPadComponent extends Component {
           >
             2
           </Button>
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_3"
             value="3"
@@ -37,7 +42,8 @@ class KeyPadComponent extends Component {
           </Button>
           <br />
 
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_4"
             value="4"
@@ -46,7 +52,8 @@ class KeyPadComponent extends Component {
           >
             4
           </Button>
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_5"
             value="5"
@@ -55,7 +62,8 @@ class KeyPadComponent extends Component {
           >
             5
           </Button>
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_6"
             value="6"
@@ -66,7 +74,8 @@ class KeyPadComponent extends Component {
           </Button>
           <br />
 
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_7"
             value="7"
@@ -75,7 +84,8 @@ class KeyPadComponent extends Component {
           >
             7
           </Button>
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_8"
             value="8"
@@ -84,7 +94,8 @@ class KeyPadComponent extends Component {
           >
             8
           </Button>
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_9"
             value="9"
@@ -95,7 +106,8 @@ class KeyPadComponent extends Component {
           </Button>
           <br />
 
-          <Button primary
+          <Button
+            primary
             style={buttonStyle}
             id="B_0"
             value="0"
@@ -108,26 +120,46 @@ class KeyPadComponent extends Component {
         </div>
 
         <div id="operationsButtons" style={kpColCss}>
-          <Button secondary
-            style={buttonStyle}
-            id="B_leftParenthetical"
-            value="left parentheses"
-            name="("
-            onClick={e => this.props.onClick(e.target.name)}
+          <Popup
+            trigger={
+              <Button
+                secondary
+                style={buttonStyle}
+                id="B_leftParenthetical"
+                value="left parentheses"
+                name="("
+                onClick={e => this.props.onClick(e.target.name)}
+              >
+                (
+              </Button>
+            }
           >
-            (
-          </Button>
-          <Button secondary
-            style={buttonStyle}
-            id="B_rightParenthetical"
-            value="right parentheses"
-            name=")"
-            onClick={e => this.props.onClick(e.target.name)}
+            <Popup.Header>Parser PEMDAS</Popup.Header>
+            <Popup.Content>
+              Use operators alongside expressions inside parentheticals
+            </Popup.Content>
+          </Popup>
+          <Popup
+            trigger={
+              <Button
+                secondary
+                style={buttonStyle}
+                id="B_rightParenthetical"
+                value="right parentheses"
+                name=")"
+                onClick={e => this.props.onClick(e.target.name)}
+              >
+                )
+              </Button>
+            }
           >
-            )
-          </Button>
-
-          <Button secondary
+            <Popup.Header>Parser PEMDAS</Popup.Header>
+            <Popup.Content>
+              Use operators alongside expressions inside parentheticals
+            </Popup.Content>
+          </Popup>
+          <Button
+            secondary
             style={buttonStyle}
             id="B_backspace"
             value="backspace"
@@ -137,7 +169,8 @@ class KeyPadComponent extends Component {
             Backspace
           </Button>
           <br />
-          <Button secondary
+          <Button
+            secondary
             style={buttonStyle}
             id="B_clear"
             value="clear"
@@ -147,7 +180,8 @@ class KeyPadComponent extends Component {
             C
           </Button>
 
-          <Button secondary
+          <Button
+            secondary
             style={buttonStyle}
             id="B_plus"
             value="plus"
@@ -156,7 +190,8 @@ class KeyPadComponent extends Component {
           >
             +
           </Button>
-          <Button secondary
+          <Button
+            secondary
             style={buttonStyle}
             id="B_minus"
             value="minus"
@@ -166,7 +201,8 @@ class KeyPadComponent extends Component {
             -
           </Button>
           <br />
-          <Button secondary
+          <Button
+            secondary
             style={buttonStyle}
             id="B_multiply"
             value="times"
@@ -176,7 +212,8 @@ class KeyPadComponent extends Component {
             x
           </Button>
 
-          <Button secondary
+          <Button
+            secondary
             style={buttonStyle}
             id="B_divide"
             value="divide"
@@ -186,7 +223,8 @@ class KeyPadComponent extends Component {
             /
           </Button>
 
-          <Button secondary
+          <Button
+            secondary
             style={buttonStyle}
             name="."
             onClick={e => this.props.onClick(e.target.name)}
@@ -194,7 +232,8 @@ class KeyPadComponent extends Component {
             .
           </Button>
           <br />
-          <Button secondary
+          <Button
+            secondary
             style={buttonStyle}
             id="B_equal"
             value="equals"
