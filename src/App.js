@@ -3,9 +3,7 @@ import ResultComponent from "./components/resultComponent";
 import KeyPadComponent from "./components/keypadComponent";
 import NumberFact from "./components/numberFact";
 import axios from "axios";
-import safeEval from "safe-eval";
 var Parser = require('expr-eval').Parser;
-var parser = new Parser();
 
 class App extends Component {
   constructor() {
@@ -23,10 +21,10 @@ class App extends Component {
     let newFact = await axios
       .get(`http://numbersapi.com/${number}/trivia`)
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         return res.data;
       });
-    console.log("getNumberTrivia newFact: " + newFact);
+    // console.log("getNumberTrivia newFact: " + newFact);
     this.setState({
       fact: newFact
     });
@@ -70,7 +68,8 @@ class App extends Component {
 
   reset = () => {
     this.setState({
-      result: ""
+      result: "",
+      fact:""
     });
   };
 
@@ -81,22 +80,16 @@ class App extends Component {
   };
 
   render() {
-    // console.log("main render this.state.fact: " + this.state.fact);
     return (
+
       <div id="mainRender" style={mainStyle}>
         <div className="calculator-body">
           <h1>Factulator</h1>
-          {/* <br/> */}
-          <p>Controls:</p>
-          {/* <br/> */}
+          {/* <p>Controls:</p> */}
           <KeyPadComponent onClick={this.onClick} />
-          {/* <br/> */}
           <p>Result:</p>
-          {/* <br/> */}
           <ResultComponent result={this.state.result} />
-          {/* <br/> */}
           <p>Fact:</p>
-          {/* <br/> */}
           <NumberFact fact={this.state.fact} />
         </div>
       </div>
@@ -105,12 +98,13 @@ class App extends Component {
 }
 
 const mainStyle={
-  "width":"25%",
+  "width":"45%",
   "text-align": "center",
   float: "center",
   margin: "auto",
-  "border":"1px solid black",
+  "border":"20px solid black",
   "padding":"10px",
+  "background":"white",
 
 }
 

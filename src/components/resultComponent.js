@@ -6,7 +6,7 @@ class ResultComponent extends Component {
     render() {
         let {result} = this.props;
         return (
-            <div className="result" style={resultStyle}>
+            <div id="result" style={resultStyle}>
                 <p>{result}</p>
             </div>
     )

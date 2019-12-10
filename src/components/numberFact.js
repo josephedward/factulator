@@ -7,7 +7,7 @@ class NumberFact extends Component {
     console.log("component render fact: " + fact);
 
     return (
-      <div className="numberFact" style={testStyle}>
+      <div id="numberFact" style={testStyle}>
         <p>{fact}</p>
       </div>
     );

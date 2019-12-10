@@ -1,6 +1,6 @@
 {
-    "short_name": "React App",
-    "name": "Create React App Sample",
+    "short_name": "Feactulator",
+    "name": "A calculator with something interesting to say",
     "icons": [
       {
         "src": "favicon.ico",
