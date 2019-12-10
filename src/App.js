@@ -4,6 +4,8 @@ import KeyPadComponent from "./components/keypadComponent";
 import NumberFact from "./components/numberFact";
 import axios from "axios";
 import safeEval from "safe-eval";
+var Parser = require('expr-eval').Parser;
+var parser = new Parser();
 
 class App extends Component {
   constructor() {
@@ -57,7 +59,7 @@ class App extends Component {
   calculate = () => {
     try {
       this.setState({
-        result: (JSON.parse(JSON.stringify(this.state.result)) || "") + ""
+        result: (Parser.evaluate(this.state.result) || "") + ""
       });
     } catch (e) {
       this.setState({
