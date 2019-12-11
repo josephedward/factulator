@@ -7,8 +7,6 @@ class KeyPadComponent extends Component {
   render() {
     return (
       <div id="keyPad" style={keyPadCSS}>
-        {/* <Separator orientation="vertical" /> */}
-        {/* ************************************************************************** */}
         <div id="numberButtons" style={kpColCss}>
           <Button
             primary
@@ -158,27 +156,19 @@ class KeyPadComponent extends Component {
               Use operators alongside expressions inside parentheticals
             </Popup.Content>
           </Popup>
+
           <Button
             secondary
             style={buttonStyle}
-            id="B_backspace"
-            value="backspace"
-            name="CE"
+            id="B_power"
+            value="power"
+            name="^"
             onClick={e => this.props.onClick(e.target.name)}
           >
-            Backspace
+            ^
           </Button>
+
           <br />
-          <Button
-            secondary
-            style={buttonStyle}
-            id="B_clear"
-            value="clear"
-            name="C"
-            onClick={e => this.props.onClick(e.target.name)}
-          >
-            C
-          </Button>
 
           <Button
             secondary
@@ -231,7 +221,28 @@ class KeyPadComponent extends Component {
           >
             .
           </Button>
+
           <br />
+          <Button
+            secondary
+            style={buttonStyle}
+            id="B_delete"
+            value="delete"
+            name="delete"
+            onClick={e => this.props.onClick(e.target.name)}
+          >
+            Del
+          </Button>
+          <Button
+            secondary
+            style={buttonStyle}
+            id="B_clear"
+            value="clear"
+            name="C"
+            onClick={e => this.props.onClick(e.target.name)}
+          >
+            C
+          </Button>
           <Button
             secondary
             style={buttonStyle}

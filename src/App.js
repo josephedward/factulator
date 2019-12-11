@@ -3,7 +3,7 @@ import ResultComponent from "./components/resultComponent";
 import KeyPadComponent from "./components/keypadComponent";
 import NumberFact from "./components/numberFact";
 import axios from "axios";
-var Parser = require('expr-eval').Parser;
+var Parser = require("expr-eval").Parser;
 
 class App extends Component {
   constructor() {
@@ -40,19 +40,21 @@ class App extends Component {
 
   onClick = button => {
     this.setFact();
-
     if (button === "=") {
       this.calculate();
     } else if (button === "C") {
       this.reset();
-    } else if (button === "CE") {
+    } else if (button === "delete") {
       this.backspace();
-    } else {
+    }
+    else {
       this.setState({
         result: this.state.result + button
       });
     }
   };
+
+
 
   calculate = () => {
     try {
@@ -69,7 +71,7 @@ class App extends Component {
   reset = () => {
     this.setState({
       result: "",
-      fact:""
+      fact: ""
     });
   };
 
@@ -81,11 +83,9 @@ class App extends Component {
 
   render() {
     return (
-
       <div id="mainRender" style={mainStyle}>
         <div className="calculator-body">
           <h1>Factulator</h1>
-          {/* <p>Controls:</p> */}
           <KeyPadComponent onClick={this.onClick} />
           <p>Result:</p>
           <ResultComponent result={this.state.result} />
@@ -97,15 +97,14 @@ class App extends Component {
   }
 }
 
-const mainStyle={
-  "width":"45%",
+const mainStyle = {
+  width: "45%",
   "text-align": "center",
   float: "center",
   margin: "auto",
-  "border":"20px solid black",
-  "padding":"10px",
-  "background":"white",
-
-}
+  border: "20px solid black",
+  padding: "10px",
+  background: "lightgreen"
+};
 
 export default App;
