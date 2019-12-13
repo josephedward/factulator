@@ -4,15 +4,22 @@
   "engines": {
     "node": "11.15.0"
   },
+  "babel": {
+    "plugins": [
+      "transform-react-jsx-source"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.0",
+    "babel": "^6.23.0",
     "expr-eval": "^2.0.2",
     "gulp": "^3.9.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "reakit": "^1.0.0-beta.13",
     "safe-eval": "^0.4.1",
@@ -35,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx-source": "^6.22.0"
   }
 }
