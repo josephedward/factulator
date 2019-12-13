@@ -3,7 +3,10 @@ import ResultComponent from "./components/resultComponent";
 import KeyPadComponent from "./components/keypadComponent";
 import NumberFact from "./components/numberFact";
 import axios from "axios";
-var Parser = require("expr-eval").Parser;
+// var Parser = require("expr-eval").Parser;
+import { create, all } from "mathjs";
+const config = {};
+const math = create(all, config);
 
 class Calculator extends Component {
   constructor() {
@@ -13,48 +16,76 @@ class Calculator extends Component {
       result: "",
       fact: ""
     };
+
+    // this.update = this.update.bind(this);
   }
 
   async getNumberTrivia(number) {
     //defaults to trivia if type unspecified
     // hit http://numbersapi.com/number/type to get a plain text response
     let newFact = await axios
-      .get(
-        `http://numbersapi.com/${number}/trivia`
-      )
+      .get(`http://numbersapi.com/${number}/trivia`)
       .then(res => {
         return res.data;
       });
     this.setState({
+      result:"",
       fact: newFact
     });
+    console.log("getNumberTrivia newfact: " + newFact);
 
     return newFact;
   }
 
-  onClick = button => {
+  update = button => {
     this.setState({
       result: this.state.result + button
     });
-    this.getNumberTrivia(button);
-    if (button === "=") {
-      this.calculate();
-    } else if (button === "C") {
-      this.reset();
-    } else if (button === "delete") {
-      this.backspace();
-    } else {
-      this.setState({
-        result: this.state.result + button
-      });
+    console.log("update");
+    return this.getNumberTrivia(this.state.result);
+  };
+
+  onClick = button => {
+    // this.update(button);
+
+    switch (button) {
+      case "=": {
+        this.calculate();
+        console.log("onclick switch_case(=)");
+        break;
+      }
+      case "C": {
+        this.reset();
+        break;
+      }
+      case "delete": {
+        this.backspace();
+        break;
+      }
+      case "trivia": {
+        this.getNumberTrivia(this.state.result);
+        break;
+      }
+      default: {
+        this.setState({
+          result: this.state.result + button
+        });
+        // this.getNumberTrivia(button);
+        console.log("onclick default");
+        // this.update(button);
+      }
     }
   };
 
   calculate = () => {
     try {
-      this.setState({
-        result: (Parser.evaluate(this.state.result) || "") + ""
-      });
+      this.setState(
+        {
+          result: (math.evaluate(this.state.result) || "") + ""
+        },
+      );
+
+      console.log("calculate test" + this.state.result);
     } catch (e) {
       this.setState({
         result: "error"
@@ -80,9 +111,10 @@ class Calculator extends Component {
       <div id="mainRender" style={mainStyle}>
         <div className="calculator-body">
           <h1>Factulator</h1>
-          <KeyPadComponent onClick={this.onClick} />
+          <h4>Click the 'trivia' button to see facts about your favorite numbers!</h4>
+          <KeyPadComponent onClick={this.onClick} result={this.state.result} />
           <p>Result:</p>
-          <ResultComponent result={this.state.result} />
+          <ResultComponent result={this.state.result} onChange={this.update} />
           <p>Fact:</p>
           <NumberFact fact={this.state.fact} />
         </div>
@@ -92,13 +124,13 @@ class Calculator extends Component {
 }
 
 const mainStyle = {
-  width: "45%",
+  width: "60%",
   textAlign: "center",
   float: "center",
   margin: "auto",
   border: "20px solid black",
   padding: "10px",
-  background: "lightgreen"
+  background: "white"
 };
 
 export default Calculator;
