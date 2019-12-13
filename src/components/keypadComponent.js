@@ -4,11 +4,13 @@ import { Button, Popup } from "semantic-ui-react";
 //rating for test
 
 class KeyPadComponent extends Component {
+
+
   render() {
     return (
       <div id="keyPad" style={keyPadCSS}>
         <div id="numberButtons" style={kpColCss}>
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_1"
@@ -18,7 +20,7 @@ class KeyPadComponent extends Component {
           >
             1
           </Button>
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_2"
@@ -28,7 +30,7 @@ class KeyPadComponent extends Component {
           >
             2
           </Button>
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_3"
@@ -40,7 +42,7 @@ class KeyPadComponent extends Component {
           </Button>
           <br />
 
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_4"
@@ -50,7 +52,7 @@ class KeyPadComponent extends Component {
           >
             4
           </Button>
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_5"
@@ -60,7 +62,7 @@ class KeyPadComponent extends Component {
           >
             5
           </Button>
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_6"
@@ -72,7 +74,7 @@ class KeyPadComponent extends Component {
           </Button>
           <br />
 
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_7"
@@ -82,7 +84,7 @@ class KeyPadComponent extends Component {
           >
             7
           </Button>
-          <Button
+          <Button className="number"
             primary
             style={buttonStyle}
             id="B_8"
@@ -92,7 +94,7 @@ class KeyPadComponent extends Component {
           >
             8
           </Button>
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_9"
@@ -104,7 +106,7 @@ class KeyPadComponent extends Component {
           </Button>
           <br />
 
-          <Button
+          <Button 
             primary
             style={buttonStyle}
             id="B_0"
@@ -120,7 +122,7 @@ class KeyPadComponent extends Component {
         <div id="operationsButtons" style={kpColCss}>
           <Popup
             trigger={
-              <Button
+              <Button 
                 secondary
                 style={buttonStyle}
                 id="B_leftParenthetical"
@@ -139,7 +141,7 @@ class KeyPadComponent extends Component {
           </Popup>
           <Popup
             trigger={
-              <Button
+              <Button 
                 secondary
                 style={buttonStyle}
                 id="B_rightParenthetical"
@@ -157,7 +159,7 @@ class KeyPadComponent extends Component {
             </Popup.Content>
           </Popup>
 
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_power"
@@ -170,7 +172,7 @@ class KeyPadComponent extends Component {
 
           <br />
 
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_plus"
@@ -180,7 +182,7 @@ class KeyPadComponent extends Component {
           >
             +
           </Button>
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_minus"
@@ -191,7 +193,7 @@ class KeyPadComponent extends Component {
             -
           </Button>
           <br />
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_multiply"
@@ -202,7 +204,7 @@ class KeyPadComponent extends Component {
             x
           </Button>
 
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_divide"
@@ -213,7 +215,7 @@ class KeyPadComponent extends Component {
             /
           </Button>
 
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             name="."
@@ -223,7 +225,7 @@ class KeyPadComponent extends Component {
           </Button>
 
           <br />
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_delete"
@@ -233,7 +235,7 @@ class KeyPadComponent extends Component {
           >
             Del
           </Button>
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_clear"
@@ -243,7 +245,7 @@ class KeyPadComponent extends Component {
           >
             C
           </Button>
-          <Button
+          <Button 
             secondary
             style={buttonStyle}
             id="B_equal"
@@ -262,7 +264,7 @@ class KeyPadComponent extends Component {
 
 const keyPadCSS = {
   display: "flex",
-  "flex-direction": "row",
+  "flexDirection": "row",
   float: "center",
   margin: "auto"
 };

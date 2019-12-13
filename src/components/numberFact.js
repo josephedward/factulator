@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {TextArea, Container} from "semantic-ui-react";
 
 class NumberFact extends Component {
 
