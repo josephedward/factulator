@@ -17,6 +17,7 @@
     "babel": "^6.23.0",
     "expr-eval": "^2.0.2",
     "gulp": "^3.9.1",
+    "mathjs": "^6.2.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
