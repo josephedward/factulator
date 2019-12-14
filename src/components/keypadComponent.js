@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 // import { Button, Separator } from "reakit";
-import { Button, Popup, Grid, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Popup,
+  Grid
+  // Segment
+} from "semantic-ui-react";
 //rating for test
 
 class KeyPadComponent extends Component {
   render() {
     return (
       <Grid id="keyPad" style={keyPadCSS}>
-        <Grid.Row stackable fluid columns={2} stretched>
+        <Grid.Row stackable="true" fluid="true" columns={2} stretched>
           <Grid.Column>
             {/* <Segment> */}
             <div id="numberButtons">
@@ -107,7 +112,6 @@ class KeyPadComponent extends Component {
                 9
               </Button>
               <br />
-
               <Button
                 primary
                 style={buttonStyle}
@@ -125,10 +129,8 @@ class KeyPadComponent extends Component {
           {/* Inner Grid - in columnd */}
           <Grid.Column>
             {/* <Segment> */}
-            <Grid
-            // style={controlGridStyle}
-            >
-              <Grid.Row stackable fluid columns={2}>
+            <Grid>
+              <Grid.Row stackable="true" fluid="true" columns={2}>
                 <Grid.Column>
                   <div id="operationsButtons">
                     <Popup
@@ -335,9 +337,6 @@ class KeyPadComponent extends Component {
 }
 
 const keyPadCSS = {
-  // display: "flex",
-  // flexDirection: "row",
-  // float: "center",
   margin: "auto",
   border: "5px solid black"
 };
@@ -353,14 +352,5 @@ const buttonStyle = {
   margin: "5px",
   width: "70px"
 };
-
-// const domTest = {
-//   border: "5px solid red"
-// };
-
-// const controlGridStyle = {
-//   // border:"1px solid black",
-//   // margin:"10px"
-// };
 
 export default KeyPadComponent;

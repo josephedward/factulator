@@ -1,12 +1,19 @@
 import React, { Component } from "react";
+import {
+  // Button,
+  // Popup
+  // Grid
+  // Segment
+} from "semantic-ui-react";
 
 class ResultComponent extends Component {
-  render() {
+  render(props) {
     let { result } = this.props;
     return (
+      
       <div id="result" style={resultStyle}>
         <p>{result}</p>
-      </div>
+        </div>      
     );
   }
 }

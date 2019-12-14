@@ -3,7 +3,8 @@ import ResultComponent from "./components/resultComponent";
 import KeyPadComponent from "./components/keypadComponent";
 import NumberFact from "./components/numberFact";
 import axios from "axios";
-// var Parser = require("expr-eval").Parser;
+import KeyboardEventHandler from "react-keyboard-event-handler";
+import { Popup } from "semantic-ui-react";
 import { create, all } from "mathjs";
 const config = {};
 const math = create(all, config);
@@ -17,19 +18,16 @@ class Calculator extends Component {
       fact: ""
     };
 
-    // this.update = this.update.bind(this);
   }
 
   async getNumberTrivia(number) {
-    //defaults to trivia if type unspecified
-    // hit http://numbersapi.com/number/type to get a plain text response
     let newFact = await axios
       .get(`http://numbersapi.com/${number}/trivia`)
       .then(res => {
         return res.data;
       });
     this.setState({
-      result:"",
+      result: "",
       fact: newFact
     });
     console.log("getNumberTrivia newfact: " + newFact);
@@ -42,7 +40,7 @@ class Calculator extends Component {
       result: this.state.result + button
     });
     console.log("update");
-    return this.getNumberTrivia(this.state.result);
+    // return this.getNumberTrivia(this.state.result);
   };
 
   onClick = button => {
@@ -79,11 +77,9 @@ class Calculator extends Component {
 
   calculate = () => {
     try {
-      this.setState(
-        {
-          result: (math.evaluate(this.state.result) || "") + ""
-        },
-      );
+      this.setState({
+        result: (math.evaluate(this.state.result) || "") + ""
+      });
 
       console.log("calculate test" + this.state.result);
     } catch (e) {
@@ -111,15 +107,32 @@ class Calculator extends Component {
       <div id="mainRender" style={mainStyle}>
         <div className="calculator-body">
           <h1>Factulator</h1>
-          <h4>Click the 'trivia' button to see facts about your favorite numbers!</h4>
+          <h4>
+            Click the 'trivia' button to see facts about your favorite numbers!
+          </h4>
           <KeyPadComponent onClick={this.onClick} result={this.state.result} />
-          <br/>
-          <div style={box2}>
-          <p>Result:</p>
-          <ResultComponent result={this.state.result} onChange={this.update} />
-          <p>Fact:</p>
-          <NumberFact fact={this.state.fact} />
-          </div>
+          <br />
+          <Popup
+            trigger={
+              <div style={box2}>
+                <p>Result:</p>
+                <KeyboardEventHandler
+                  handleKeys={["numeric"]}
+                  onKeyEvent={key => this.update(key)}
+                />
+                <ResultComponent
+                  result={this.state.result}
+                  onChange={this.update}
+                />
+
+                <p>Fact:</p>
+                <NumberFact fact={this.state.fact} />
+              </div>
+            }
+          >
+            <Popup.Header>Keyboard</Popup.Header>
+            <Popup.Content>Keyboard inputs can be utilized - numbers only! 😄</Popup.Content>
+          </Popup>
         </div>
       </div>
     );
@@ -136,8 +149,8 @@ const mainStyle = {
   background: "white"
 };
 
-const box2={
+const box2 = {
   border: "5px solid black"
-}
+};
 
 export default Calculator;
