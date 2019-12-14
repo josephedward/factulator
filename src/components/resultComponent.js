@@ -12,8 +12,8 @@ class ResultComponent extends Component {
 }
 
 const resultStyle = {
-  border: "1px solid black",
-  height: "20px"
+  // border: "1px solid black",
+  height: "100%"
 };
 
 export default ResultComponent;

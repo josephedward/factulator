@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 // import { Button, Separator } from "reakit";
-import { Button, Popup, Grid } from "semantic-ui-react";
+import { Button, Popup, Grid, Segment } from "semantic-ui-react";
 //rating for test
 
 class KeyPadComponent extends Component {
   render() {
     return (
       <Grid id="keyPad" style={keyPadCSS}>
-        <Grid.Row stackable columns={2} stretched>
+        <Grid.Row stackable fluid columns={2} stretched>
           <Grid.Column>
+            {/* <Segment> */}
             <div id="numberButtons">
               <Button
                 primary
@@ -119,13 +120,15 @@ class KeyPadComponent extends Component {
               </Button>
               {/* <br /> */}
             </div>
+            {/* </Segment> */}
           </Grid.Column>
           {/* Inner Grid - in columnd */}
           <Grid.Column>
-            <Grid 
+            {/* <Segment> */}
+            <Grid
             // style={controlGridStyle}
             >
-              <Grid.Row stackable columns={2}>
+              <Grid.Row stackable fluid columns={2}>
                 <Grid.Column>
                   <div id="operationsButtons">
                     <Popup
@@ -213,7 +216,7 @@ class KeyPadComponent extends Component {
                   </div>
                 </Grid.Column>
                 <Grid.Column>
-                  <div id="advanced operations" style={operatorStyle}>
+                  <div id="advancedOperationButtons" style={operatorStyle}>
                     <Button
                       secondary
                       style={buttonStyle}
@@ -277,9 +280,7 @@ class KeyPadComponent extends Component {
                   </div>
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row
-              style={operatorStyle}
-              >
+              <Grid.Row style={operatorStyle}>
                 <Button
                   secondary
                   style={buttonStyle}
@@ -312,7 +313,8 @@ class KeyPadComponent extends Component {
                 </Button>
                 {/* need to expand to further subcategories and implement additional axios calls */}
                 <Button
-                  inverted color='orange'
+                  inverted
+                  color="orange"
                   style={buttonStyle}
                   id="B_trivia"
                   value="trivia"
@@ -323,6 +325,7 @@ class KeyPadComponent extends Component {
                 </Button>
               </Grid.Row>
             </Grid>
+            {/* </Segment> */}
           </Grid.Column>
           {/* END INNER GRID in col*/}
         </Grid.Row>

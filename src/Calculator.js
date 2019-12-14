@@ -113,10 +113,13 @@ class Calculator extends Component {
           <h1>Factulator</h1>
           <h4>Click the 'trivia' button to see facts about your favorite numbers!</h4>
           <KeyPadComponent onClick={this.onClick} result={this.state.result} />
+          <br/>
+          <div style={box2}>
           <p>Result:</p>
           <ResultComponent result={this.state.result} onChange={this.update} />
           <p>Fact:</p>
           <NumberFact fact={this.state.fact} />
+          </div>
         </div>
       </div>
     );
@@ -132,5 +135,9 @@ const mainStyle = {
   padding: "10px",
   background: "white"
 };
+
+const box2={
+  border: "5px solid black"
+}
 
 export default Calculator;
