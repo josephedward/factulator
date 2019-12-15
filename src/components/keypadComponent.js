@@ -314,17 +314,27 @@ class KeyPadComponent extends Component {
                   =
                 </Button>
                 {/* need to expand to further subcategories and implement additional axios calls */}
-                <Button
-                  inverted
-                  color="orange"
-                  style={buttonStyle}
-                  id="B_trivia"
-                  value="trivia"
-                  name="trivia"
-                  onClick={e => this.props.onClick(e.target.name)}
+                <Popup
+                  trigger={
+                    <Button
+                      inverted
+                      color="orange"
+                      style={buttonStyle}
+                      id="B_trivia"
+                      value="trivia"
+                      name="trivia"
+                      onClick={e => this.props.onClick(e.target.name)}
+                    >
+                      trivia
+                    </Button>
+                  }
                 >
-                  trivia
-                </Button>
+                  <Popup.Header>Mixed Content</Popup.Header>
+                  <Popup.Content>
+                    The Numbers API does not use a security certificate, so it will not be served to a third party (you)
+                    if you have stringent browser settings. 
+                  </Popup.Content>
+                </Popup>
               </Grid.Row>
             </Grid>
             {/* </Segment> */}
