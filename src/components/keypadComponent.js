@@ -331,8 +331,8 @@ class KeyPadComponent extends Component {
                 >
                   <Popup.Header>Mixed Content</Popup.Header>
                   <Popup.Content>
-                    The Numbers API does not use a security certificate, so it will not be served to a third party (you)
-                    if you have stringent browser settings. 
+                    The Numbers API does not use a security certificate, so it will not be served to a third party (you),
+                    if you have stringent browser settings enabled. 
                   </Popup.Content>
                 </Popup>
               </Grid.Row>
