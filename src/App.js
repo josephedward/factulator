@@ -9,8 +9,8 @@ export default function App(){
 return(
     <Router>
         <Switch>
-            <Route exact path="/calculator" component={Calculator}/>
-            <Route exact path="/test" component={Test}/>
+            <Route exact path="/" component={Calculator}/>
+            {/* <Route exact path="/test" component={Test}/> */}
         </Switch>
     </Router>)
 }
