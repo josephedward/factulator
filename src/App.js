@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route,
     // Link
  } from "react-router-dom";
 import Calculator from "./Calculator";
-import Test from "./Test"
+
 
 export default function App(){
 return(
