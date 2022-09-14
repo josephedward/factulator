@@ -22,6 +22,7 @@
     "react-scripts": "^4.0.3",
     "reakit": "^1.0.0-beta.13",
     "safe-eval": "^0.4.1",
+    "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {

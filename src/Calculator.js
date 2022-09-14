@@ -15,37 +15,37 @@ class Calculator extends Component {
 
     this.state = {
       result: "",
-      fact: ""
+      fact: "",
     };
-
   }
 
   async getNumberTrivia(number) {
-    let newFact = await axios
-      .get(`http://numbersapi.com/${number}/trivia`)
-      .then(res => {
-        return res.data;
-      });
-    this.setState({
-      result: "",
-      fact: newFact
-    });
-    console.log("getNumberTrivia newfact: " + newFact);
 
+    let newFact = await axios({
+      method: "get",
+            url:
+        "https://corsproxy.io/?" +
+        encodeURIComponent(
+          "http://numbersapi.com/" + number + "/trivia"
+        ),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
+    });
+    // console.log("getNumberTrivia newfact: " + newFact);
+    this.setState({ fact: newFact.data });
     return newFact;
   }
-
-  update = button => {
+ 
+  update = (button) => {
     this.setState({
-      result: this.state.result + button
+      result: this.state.result + button,
     });
     console.log("update");
-    // return this.getNumberTrivia(this.state.result);
   };
 
-  onClick = button => {
-    // this.update(button);
-
+  onClick = (button) => {
     switch (button) {
       case "=": {
         this.calculate();
@@ -66,7 +66,7 @@ class Calculator extends Component {
       }
       default: {
         this.setState({
-          result: this.state.result + button
+          result: this.state.result + button,
         });
         // this.getNumberTrivia(button);
         console.log("onclick default");
@@ -78,13 +78,13 @@ class Calculator extends Component {
   calculate = () => {
     try {
       this.setState({
-        result: (math.evaluate(this.state.result) || "") + ""
+        result: (math.evaluate(this.state.result) || "") + "",
       });
 
       console.log("calculate test" + this.state.result);
     } catch (e) {
       this.setState({
-        result: "error"
+        result: "error",
       });
     }
   };
@@ -92,13 +92,13 @@ class Calculator extends Component {
   reset = () => {
     this.setState({
       result: "",
-      fact: ""
+      fact: "",
     });
   };
 
   backspace = () => {
     this.setState({
-      result: this.state.result.slice(0, -1)
+      result: this.state.result.slice(0, -1),
     });
   };
 
@@ -118,7 +118,7 @@ class Calculator extends Component {
                 <p>Result:</p>
                 <KeyboardEventHandler
                   handleKeys={["numeric"]}
-                  onKeyEvent={key => this.update(key)}
+                  onKeyEvent={(key) => this.update(key)}
                 />
                 <ResultComponent
                   result={this.state.result}
@@ -131,7 +131,9 @@ class Calculator extends Component {
             }
           >
             <Popup.Header>Keyboard</Popup.Header>
-            <Popup.Content>Keyboard inputs can be utilized - numbers only! 😄</Popup.Content>
+            <Popup.Content>
+              Keyboard inputs can be utilized - numbers only! 😄
+            </Popup.Content>
           </Popup>
         </div>
       </div>
@@ -146,11 +148,11 @@ const mainStyle = {
   margin: "auto",
   border: "20px solid black",
   padding: "10px",
-  background: "white"
+  background: "white",
 };
 
 const box2 = {
-  border: "5px solid black"
+  border: "5px solid black",
 };
 
 export default Calculator;
